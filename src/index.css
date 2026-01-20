@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cottagecore Cozy Palette */
+    --background: 35 100% 97%;  /* Cream #FFF8F0 */
+    --foreground: 25 33% 52%;   /* Warm Brown #A47551 */
+
+    --card: 40 60% 95%;         /* Beige #E8DAB2 */
+    --card-foreground: 25 33% 52%;
+
+    --popover: 35 100% 97%;
+    --popover-foreground: 25 33% 52%;
+
+    --primary: 95 27% 80%;      /* Sage Green #C9DABF */
+    --primary-foreground: 25 33% 40%;
+
+    --secondary: 10 85% 92%;    /* Blush Pink #FADCD9 */
+    --secondary-foreground: 25 33% 52%;
+
+    --muted: 40 60% 95%;        /* Beige */
+    --muted-foreground: 25 20% 60%;
+
+    --accent: 10 85% 92%;       /* Blush Pink */
+    --accent-foreground: 25 33% 52%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 35 100% 97%;
+
+    --border: 40 30% 88%;
+    --input: 40 30% 88%;
+    --ring: 95 27% 70%;
+
+    --radius: 0.75rem;
+    
+    /* Custom cozy tokens */
+    --cream: 35 100% 97%;
+    --sage: 95 27% 80%;
+    --blush: 10 85% 92%;
+    --beige: 40 60% 95%;
+    --warm-brown: 25 33% 52%;
+    
+    /* Shadows & glows */
+    --shadow-soft: 0 2px 8px rgba(164, 117, 81, 0.08);
+    --shadow-medium: 0 4px 16px rgba(164, 117, 81, 0.12);
+    --shadow-layered: 0 2px 4px rgba(164, 117, 81, 0.06), 0 4px 12px rgba(164, 117, 81, 0.08), 0 8px 24px rgba(164, 117, 81, 0.04);
+    --glow-hover: 0 0 20px rgba(201, 218, 191, 0.4);
+    --glow-warm: 0 0 30px rgba(250, 220, 217, 0.3);
+    
+    /* Gradients */
+    --gradient-pastel: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(var(--cream)) 0%, hsl(var(--blush)) 50%, hsl(var(--beige)) 100%);
+    --gradient-vignette: radial-gradient(ellipse at center, transparent 0%, rgba(164, 117, 81, 0.1) 100%);
+    --gradient-light-overlay: linear-gradient(180deg, rgba(255, 248, 240, 0.8) 0%, rgba(255, 248, 240, 0.3) 100%);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Keep light theme for dark mode - cottagecore is always cozy and light */
+    --background: 35 100% 97%;
+    --foreground: 25 33% 52%;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-shadow-soft {
+    text-shadow: 0 2px 4px rgba(164, 117, 81, 0.1);
+  }
+  
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--glow-hover);
+    transform: translateY(-2px);
+  }
+  
+  .card-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .gradient-pastel {
+    background: var(--gradient-pastel);
+  }
+  
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+  
+  .vignette {
+    position: relative;
+  }
+  
+  .vignette::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-vignette);
+    pointer-events: none;
+  }
+  
+  .texture-linen {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a47551' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .shadow-layered {
+    box-shadow: var(--shadow-layered);
+  }
+  
+  .warm-glow:hover {
+    box-shadow: var(--glow-warm);
+  }
+  
+  .parallax-slow {
+    transform: translateY(calc(var(--scroll-y, 0) * 0.3px));
+  }
+  
+  .parallax-fast {
+    transform: translateY(calc(var(--scroll-y, 0) * 0.6px));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
