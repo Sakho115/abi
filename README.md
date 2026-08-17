@@ -1,73 +1,388 @@
-# Welcome to your Lovable project
+# Cafe-finder
 
-## Project info
+> **Discover the places that don't always show up on the first page.**
 
-**URL**: https://lovable.dev/projects/96b6d626-7d78-4600-9931-5a066b9cd41a
+ABI is a café discovery and visual storytelling platform built around the idea of finding unique, hidden, and memorable cafés.
 
-## How can I edit this code?
+The platform combines café discovery, personal journaling, visual galleries, and location-based exploration into one immersive web experience.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## ☕ What is ABI?
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/96b6d626-7d78-4600-9931-5a066b9cd41a) and start prompting.
+ABI is designed for people who enjoy discovering cafés beyond the usual recommendations.
 
-Changes made via Lovable will be committed automatically to this repo.
+Instead of functioning as a conventional restaurant directory, ABI focuses on the **experience of discovering a place**.
 
-**Use your preferred IDE**
+The platform brings together:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Hidden café discovery
+- Café journals
+- Curated photography
+- Interactive location exploration
+- Personal stories
+- Café-focused travel and lifestyle content
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🧭 Platform Structure
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```text
+                        ABI
+                         │
+          ┌──────────────┼──────────────┐
+          │              │              │
+          ▼              ▼              ▼
+   Hidden Cafés      Café Journal     Gallery
+          │              │              │
+          └──────────────┼──────────────┘
+                         │
+                         ▼
+                       Map
+                         │
+                         ▼
+                 Explore & Discover
+````
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+# ✨ Features
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## ☕ Hidden Cafés
+
+The **Hidden Cafes** section focuses on discovering lesser-known and distinctive cafés.
+
+Instead of simply listing popular venues, the experience is centered around finding places worth exploring.
+
+Route:
+
+```text
+/hidden-cafes
+```
+
+---
+
+## 📖 Café Journal
+
+The **Café Journal** provides a storytelling layer for documenting café visits and experiences.
+
+It gives the platform a more personal and editorial character than a standard café directory.
+
+Route:
+
+```text
+/journal
+```
+
+The journal can be used for:
+
+* Café reviews
+* Personal experiences
+* Travel notes
+* Atmosphere descriptions
+* Coffee discoveries
+* Stories behind individual locations
+
+---
+
+## 🖼️ Gallery
+
+The **Gallery** presents cafés through visual content.
+
+Route:
+
+```text
+/gallery
+```
+
+The goal is to make the visual atmosphere of a café part of the discovery experience rather than treating images as simple thumbnails.
+
+---
+
+## 🗺️ Interactive Map
+
+ABI includes a dedicated map experience for exploring café locations.
+
+Route:
+
+```text
+/map
+```
+
+This provides a location-based way to discover cafés and connect the digital experience with real-world exploration.
+
+---
+
+## 📚 About
+
+The About section provides context about the project, its purpose, and its identity.
+
+Route:
+
+```text
+/about
+```
+
+---
+
+## ✉️ Contact
+
+A dedicated contact section allows visitors to interact with the platform or its creators.
+
+Route:
+
+```text
+/contact
+```
+
+---
+
+# 🌿 Experience Design
+
+ABI is designed around four ideas:
+
+### Discover
+
+Find cafés that are easy to miss.
+
+### Explore
+
+Understand the place beyond its name and address.
+
+### Experience
+
+Use stories, imagery, and atmosphere to communicate what makes a café unique.
+
+### Remember
+
+Document café experiences through journals and visual collections.
+
+---
+
+# 🏗️ Application Architecture
+
+The application is organized as a React single-page application with route-based experiences.
+
+```text
+React Application
+       │
+       ▼
+   React Router
+       │
+ ┌─────┼─────────────────────────┐
+ │     │         │        │      │
+ ▼     ▼         ▼        ▼      ▼
+Home  Cafés    Journal  Gallery  Map
+                 │
+             ┌───┴───┐
+             ▼       ▼
+           About   Contact
+```
+
+---
+
+# 🛠️ Technology Stack
+
+## Core
+
+* React
+* TypeScript
+* Vite
+
+## Application
+
+* React Router
+* TanStack Query
+
+## UI
+
+* shadcn/ui
+* Radix UI
+* Tailwind CSS
+* Lucide React
+
+## Utilities
+
+* React Hook Form
+* Zod
+* Sonner
+* date-fns
+* Embla Carousel
+
+---
+
+# 📁 Project Structure
+
+```text
+abi/
+│
+├── public/
+│
+├── src/
+│   ├── components/
+│   │   └── ui/
+│   │
+│   ├── pages/
+│   │   ├── Home.*
+│   │   ├── HiddenCafes.*
+│   │   ├── CafeJournal.*
+│   │   ├── Gallery.*
+│   │   ├── Map.*
+│   │   ├── About.*
+│   │   ├── Contact.*
+│   │   └── NotFound.*
+│   │
+│   ├── App.tsx
+│   └── main.tsx
+│
+├── package.json
+├── vite.config.*
+└── README.md
+```
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+* Node.js
+* npm
+
+---
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/Sakho115/abi.git
+cd abi
+```
+
+---
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## Start the Development Server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The Vite development server will provide a local URL where the application can be accessed.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+# 📦 Production Build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Create an optimized production build:
 
-## What technologies are used for this project?
+```bash
+npm run build
+```
 
-This project is built with:
+Preview the production build locally:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+npm run preview
+```
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/96b6d626-7d78-4600-9931-5a066b9cd41a) and click on Share -> Publish.
+# 🎯 Use Cases
 
-## Can I connect a custom domain to my Lovable project?
+ABI can be used as:
 
-Yes, you can!
+* A hidden café discovery platform
+* A café-hopping guide
+* A coffee-focused travel experience
+* A visual café journal
+* A curated local discovery website
+* A lifestyle and photography platform
+* A foundation for a larger café community
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# 🎨 Design Philosophy
+
+ABI is built around the idea that discovering a café is more than finding an address.
+
+A location has:
+
+* Atmosphere
+* Architecture
+* People
+* Stories
+* Food
+* Coffee
+* Memories
+
+ABI attempts to represent those elements digitally.
+
+```text
+            LOCATION
+                +
+             STORIES
+                +
+             IMAGES
+                +
+             JOURNAL
+                +
+              MAP
+                ↓
+        CAFÉ EXPERIENCE
+```
+
+---
+
+# 🔮 Future Possibilities
+
+ABI can be extended into a larger café discovery ecosystem with features such as:
+
+* User accounts
+* Personal café collections
+* Café ratings and reviews
+* Saved cafés
+* Location-based recommendations
+* Café check-ins
+* Community submissions
+* Advanced map filtering
+* Nearby café discovery
+* Café owner profiles
+* Event discovery
+* Coffee recommendations
+* Personalized discovery feeds
+
+---
+
+# 📌 Project Status
+
+**Café Discovery / Lifestyle Web Project**
+
+ABI is an exploration of how a location-based discovery platform can combine editorial storytelling, visual content, and interactive exploration into a single experience.
+
+---
+
+# 👨‍💻 Author
+
+Developed by **Sakho115**.
+
+GitHub:
+
+[https://github.com/Sakho115](https://github.com/Sakho115)
+
+---
+
+# 📄 License
+
+See the repository license for applicable usage and distribution terms.
+
+```
+```
